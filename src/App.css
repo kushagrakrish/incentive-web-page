@@ -5,3 +5,7 @@
 .offer-gradient {
   background: linear-gradient(100.4deg, #101022 -9.17%, #080810 118.74%);
 }
+
+.bg-gradient {
+  background: linear-gradient(142.29deg, #000000 7.86%, #010928 92.51%);
+}

@@ -1,29 +1,75 @@
-import React, { useState } from "react";
-import hero from "../../Assests/hero.jpeg";
+import React, { useEffect, useState } from "react";
+import Vector from "../../Assests/Vector.png";
+import Ellipse from "../../Assests/Ellipse.png";
+import VectorLine from "../../Assests/Vector 122.png";
+import VectorBgLine from "../../Assests/Vector 121.png";
 import Fade from "react-reveal/Fade";
+import Reveal from "react-reveal/Reveal";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
+import { purple } from "@mui/material/colors";
 
 const Banner = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(0);
+  const [progress, setProgress] = useState(0);
+
   const handleClick = () => {
-    setShow(!show);
+    switch (show) {
+      case 0:
+        return setShow(1);
+      case 1:
+        return setShow(2);
+      case 2:
+        return setShow(0);
+    }
   };
+
+  useEffect(() => {
+    switch (show) {
+      case 0:
+        return setProgress(70);
+      case 1:
+        return setProgress(40);
+      case 2:
+        return setProgress(10);
+    }
+  }, [show]);
+
   return (
     <>
       {/* Parent Div */}
-      <div className='flex items-start justify-evenly bg-black px-32 py-32'>
+      <img className='absolute' src={Ellipse} alt='' />
+      <div className='flex items-center justify-between bg-black px-32 py-32'>
         {/* DIv 1 */}
         <div>
           <h1 className='text-3xl text-gray-400 font-semibold my-20'>
             Why Incentive
           </h1>
-          <div
-            onClick={handleClick}
-            className='cursor-pointer'
-            style={styles.block}
-          >
+          <div className='flex items-center cursor-pointer'>
+            {/* <div> */}
+            <Box sx={{ width: "100%", transform: [{ rotate: "90deg" }] }}>
+              <LinearProgress
+                onClick={handleClick}
+                sx={{
+                  width: 5,
+                  height: 700,
+                  color: "magenta",
+                  backgroundColor: `#A020F0`,
+                  "& .MuiLinearProgress-bar": {
+                    backgroundColor: `purple`,
+                  },
+                  "& span.MuiLinearProgress-bar": {
+                    transform: `translateY(-${progress}%) !important`, //has to have !important
+                  },
+                }}
+                variant='determinate'
+                value={progress}
+              />
+            </Box>
+
             <div className='ml-11'>
-              <Fade top when={show}>
-                <div>
+              <div onClick={handleClick}>
+                <Fade top when={show == 0}>
                   <h1 className='text-3xl text-purple-800 font-bold my-10'>
                     Manage the complete <br />
                     ESOP{" "}
@@ -33,58 +79,47 @@ const Banner = () => {
                     Minus vitae iusto ducimus vel. Ipsa consequuntur excepturi
                     harum! Cumque voluptatibus ea blanditiis recusandae sit.
                   </p>
-                </div>
-              </Fade>
-              <Fade top when={show}>
-                <h1 className='text-3xl text-purple-800 font-bold my-10'>
-                  Manage the complete <br />
-                  ESOP{" "}
-                </h1>
-                <p className='w-[25rem] text-gray-300'>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Minus vitae iusto ducimus vel. Ipsa consequuntur excepturi
-                  harum! Cumque voluptatibus ea blanditiis recusandae sit.
-                </p>
-              </Fade>
-              <Fade top when={show}>
-                <h1 className='text-3xl text-purple-800 font-bold my-10'>
-                  Manage the complete <br />
-                  ESOP{" "}
-                </h1>
-                <p className='w-[25rem] text-gray-300'>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Minus vitae iusto ducimus vel. Ipsa consequuntur excepturi
-                  harum! Cumque voluptatibus ea blanditiis recusandae sit.
-                </p>
-              </Fade>
+                </Fade>
+                <Fade top when={show == 1}>
+                  <h1 className='text-3xl text-purple-800 font-bold my-10'>
+                    Manage the complete <br />
+                    ESOP{" "}
+                  </h1>
+                  <p className='w-[25rem] text-gray-300'>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Minus vitae iusto ducimus vel. Ipsa consequuntur excepturi
+                    harum! Cumque voluptatibus ea blanditiis recusandae sit.
+                  </p>
+                </Fade>
+                <Fade top when={show == 2}>
+                  <h1 className='text-3xl text-purple-800 font-bold my-10'>
+                    Manage the complete <br />
+                    ESOP{" "}
+                  </h1>
+                  <p className='w-[25rem] text-gray-300'>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Minus vitae iusto ducimus vel. Ipsa consequuntur excepturi
+                    harum! Cumque voluptatibus ea blanditiis recusandae sit.
+                  </p>
+                </Fade>{" "}
+              </div>
             </div>
+            {/* </div> */}
           </div>
         </div>
         {/* IMG DIV */}
-        <div>
-          <img src={hero} className='w-[30rem]' alt='' />
+        <div className='mr-40' onClick={handleClick}>
+          <img
+            src={Vector}
+            alt=''
+            className={`${
+              show ? "rotate-180 transition duration-1000 " : "rotate-90"
+            }`}
+          />
         </div>
       </div>
     </>
   );
-};
-const styles = {
-  block: {
-    display: "flex",
-    alignItems: "start",
-    justifyContent: "center",
-    // width: "1100%",
-    height: "100%",
-    background: "#000",
-    borderLeft: "2px solid purple",
-  },
-  title: {
-    textAlign: "center",
-    fontSize: 100,
-    color: "#fff",
-    fontFamily: "Lato, sans-serif",
-    fontweight: 100,
-  },
 };
 
 export default Banner;

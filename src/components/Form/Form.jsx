@@ -3,7 +3,7 @@ import formImg from "../../Assests/form.png";
 const Form = () => {
   return (
     <>
-      <div className='bg-black flex items-center justify-around text-white my-24 h-[40rem]'>
+      <div className='bg-[#060606] flex items-center justify-around text-white  h-[40rem]'>
         {/* Description */}
         <div>
           <h1 className='text-3xl font-semibold capitalize '>

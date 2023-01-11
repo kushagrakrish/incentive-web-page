@@ -1,5 +1,7 @@
 import React from "react";
-import hero from "../../Assests/hero.jpeg";
+import Ellipse1 from "../../Assests/Ellipse 1.png";
+import Frame4 from "../../Assests/Frame 4.png";
+import Frame5 from "../../Assests/Frame 5.png";
 const HeroSection = () => {
   return (
     <>
@@ -21,9 +23,11 @@ const HeroSection = () => {
           </button>
         </div>
         {/* IMG DIV */}
-        <div className='w-[25rem]'>
-          <img src={hero} alt='' />
+        <div className='flex items-start gap-6 mr-56'>
+          <img src={Frame4} alt='' />
+          <img src={Frame5} className='mt-24' alt='' />
         </div>
+        <img className='absolute ml-[40rem] blur-3xl' src={Ellipse1} alt='' />
       </div>
     </>
   );

@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <>
       {/* Main DIv */}
-      <div className='bg-[#071325] px-32 pt-10 pb-32 flex flex-col gap-12'>
+      <div className='bg-[#0D1329] px-36 pt-10 pb-32 flex flex-col gap-12'>
         {/* First div */}
         <h1 className='text-2xl text-blue-400 font-bold mb-4'>incentive.</h1>
         <div className='flex items-start justify-between  '>
