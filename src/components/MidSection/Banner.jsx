@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Vector from "../../Assests/Vector.png";
 import Ellipse from "../../Assests/Ellipse.png";
-import VectorLine from "../../Assests/Vector 122.png";
-import VectorBgLine from "../../Assests/Vector 121.png";
 import Fade from "react-reveal/Fade";
-import Reveal from "react-reveal/Reveal";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
-import { purple } from "@mui/material/colors";
 
 const Banner = () => {
   const [show, setShow] = useState(0);
@@ -21,6 +17,7 @@ const Banner = () => {
         return setShow(2);
       case 2:
         return setShow(0);
+      default:
     }
   };
 
@@ -32,14 +29,15 @@ const Banner = () => {
         return setProgress(40);
       case 2:
         return setProgress(10);
+      default:
     }
   }, [show]);
 
   return (
     <>
       {/* Parent Div */}
-      <img className='absolute' src={Ellipse} alt='' />
-      <div className='flex items-center justify-between bg-black px-32 py-32'>
+      <img className='absolute' src={Ellipse} alt='vector-ellipse' />
+      <div className='flex items-center justify-between flex-wrap bg-black px-32 py-32'>
         {/* DIv 1 */}
         <div>
           <h1 className='text-3xl text-gray-400 font-semibold my-20'>
@@ -69,7 +67,7 @@ const Banner = () => {
 
             <div className='ml-11'>
               <div onClick={handleClick}>
-                <Fade top when={show == 0}>
+                <Fade top when={show === 0}>
                   <h1 className='text-3xl text-purple-800 font-bold my-10'>
                     Manage the complete <br />
                     ESOP{" "}
@@ -80,7 +78,7 @@ const Banner = () => {
                     harum! Cumque voluptatibus ea blanditiis recusandae sit.
                   </p>
                 </Fade>
-                <Fade top when={show == 1}>
+                <Fade top when={show === 1}>
                   <h1 className='text-3xl text-purple-800 font-bold my-10'>
                     Manage the complete <br />
                     ESOP{" "}
@@ -91,7 +89,7 @@ const Banner = () => {
                     harum! Cumque voluptatibus ea blanditiis recusandae sit.
                   </p>
                 </Fade>
-                <Fade top when={show == 2}>
+                <Fade top when={show === 2}>
                   <h1 className='text-3xl text-purple-800 font-bold my-10'>
                     Manage the complete <br />
                     ESOP{" "}
@@ -111,7 +109,7 @@ const Banner = () => {
         <div className='mr-40' onClick={handleClick}>
           <img
             src={Vector}
-            alt=''
+            alt='vector img'
             className={`${
               show ? "rotate-180 transition duration-1000 " : "rotate-90"
             }`}

@@ -1,4 +1,3 @@
-import { Menu } from "@mui/icons-material";
 import Hamburger from "hamburger-react";
 import React, { useState } from "react";
 
@@ -12,9 +11,11 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='flex items-center justify-between px-32 mx-auto py-4 sticky top-0 left-0 right-0 bg-black text-white z-[5] max-[500px]:px-5 '>
+      <div className='flex items-center justify-between px-32 mx-auto py-6 sticky top-0 left-0 right-0 bg-black text-white z-[5] max-[500px]:px-5 '>
         <div className='md:justify-start'>
-          <h1 className='text-3xl text-gray-400 font-bold'>incentive.</h1>
+          <h1 className='text-3xl text-[#676767] font-bold cursor-pointer hover:text-[#b8b8b8] transition-all duration-100 ease-in'>
+            incentive.
+          </h1>
         </div>
         <div className='flex list-none items-center '>
           <div
@@ -24,7 +25,7 @@ const Navbar = () => {
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>{" "}
           {Items?.map((item, i) => (
-            <li className='mx-10 md:hidden  sm:hidden lg:flex max-[640px]:hidden'>
+            <li className='mx-10 md:hidden sm:hidden lg:flex max-[640px]:hidden text-xl font-medium hover:text-[#676767] transition-all duration-100 ease-in cursor-pointer'>
               {item}
             </li>
           ))}
@@ -33,7 +34,9 @@ const Navbar = () => {
       {showList ? (
         <div className='flex flex-col w-screen h-96 bg-black text-white justify-evenly items-center'>
           {Items?.map((item, i) => (
-            <li className='mx-10 list-none'>{item}</li>
+            <li className='mx-10 list-none text-lg font-medium cursor-pointer hover:text-[#676767] transition-all duration-100 ease-in'>
+              {item}
+            </li>
           ))}
         </div>
       ) : (

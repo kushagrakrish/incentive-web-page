@@ -15,10 +15,10 @@ const Footer = () => {
   return (
     <>
       {/* Main DIv */}
-      <div className='bg-[#0D1329] px-36 pt-10 pb-32 flex flex-col gap-12'>
+      <div className='bg-[#0D1329] px-36 pt-10 pb-32 flex flex-col gap-12 flex-wrap'>
         {/* First div */}
         <h1 className='text-2xl text-blue-400 font-bold mb-4'>incentive.</h1>
-        <div className='flex items-start justify-between  '>
+        <div className='flex items-start justify-between flex-wrap md:gap-10 sm:gap-10 max-[600px]:gap-10 '>
           <div>
             <p className='w-[22rem] text-gray-400 font-semibold text-lg text-justify'>
               Incentiv's ESOP management platform (name undecided) will offer an
